@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Web.Mvc;
 using MvcFlash.Core;
 using MvcFlash.Core.Extensions;
@@ -28,6 +29,8 @@ namespace SoftwareTest.Controllers
                         var path = Path.Combine(Server.MapPath("~/Files"), Path.GetFileName(fileName));
                         formModel.TextFile.SaveAs(path);
                         formModel.PrimeFactors = PrimeFactorHelper.GetPrimeFactors(path);
+                        if(!formModel.PrimeFactors.Any())
+                            Flash.Instance.Info("The file contained no integers");
                     }
                 }
                 catch (Exception exception)
