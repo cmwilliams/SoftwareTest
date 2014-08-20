@@ -10,7 +10,6 @@
 @using (Html.BeginForm("Index", "Triangle", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-
     <div class="form-horizontal">
         @Html.ValidationSummary(true)
         @Html.EditorFor(model => model, new { htmlAttributes = new { @class = "form-control" }, })
