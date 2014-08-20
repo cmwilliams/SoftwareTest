@@ -2,7 +2,7 @@
 
 namespace SoftwareTest.Controllers
 {
-    public class HomeController : Controller
+    public class SqlController : Controller
     {
         public ActionResult Index()
         {

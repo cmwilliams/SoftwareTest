@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "SQL Statements ";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Write a SQL Query to pull all customers</h3>
+
+<pre>
+SELECT CustomerId, Name, Address, PhoneNumber, EmailAddress
+FROM   Customers
+</pre>
+<hr />
+<h3>Write a SQL Query to pull all customers that have orders (no duplicates)</h3>
+<pre>
+SELECT  DISTINCT Customers.CustomerId, Customers.Name, Customers.Address, Customers.PhoneNumber, Customers.EmailAddress
+FROM    Customers INNER JOIN Orders ON Customers.CustomerId = Orders.CustomerId
+</pre>
+<hr/>
+<h3>Write a SQL Query to pull all customers that do not have orders</h3>
+<pre>
+SELECT  CustomerId, Name, Address, PhoneNumber, EmailAddress
+FROM    Customers
+WHERE   (CustomerId NOT IN  (SELECT CustomerId  FROM Orders))
+</pre>
+<hr />
+<h3>If you had to create an index on these tables, which fields would you most likely index and why?</h3>
+<p>
+    I would create an index for all primary and foreign  keys and any field most commonly used in where clauses such as Name or EmailAddress.
+</p>
+
+<hr />
+<h3>Write a query that lists each customer name, email, and the number of order they have</h3>
+<pre>
+SELECT  Customers.Name, Customers.EmailAddress, COUNT(Orders.OrderId) AS NumberOfOrders
+FROM    Customers INNER JOIN
+        Orders ON Customers.CustomerId = Orders.CustomerId
+GROUP BY Customers.Name, Customers.EmailAddress
+</pre>
+<hr />
+<h3>Write a query that pulls all customers that have between 2 and 5 orders</h3>
+<pre>
+SELECT  Customers.CustomerId, Customers.Name, Customers.Address, Customers.PhoneNumber, Customers.EmailAddress
+FROM    Customers INNER JOIN
+        Orders ON Customers.CustomerId = Orders.CustomerId
+GROUP BY    Customers.Name, Customers.EmailAddress, Customers.CustomerId, Customers.Address, Customers.PhoneNumber
+HAVING  (COUNT(Orders.OrderId) BETWEEN 2 AND 5)
+</pre>
