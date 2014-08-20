@@ -1,4 +1,4 @@
-﻿namespace SoftwareTest.Helpers
+﻿namespace SoftwareTest.Extensions
 {
     public class Node<T>
     {

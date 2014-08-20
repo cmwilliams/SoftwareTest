@@ -16,6 +16,7 @@ namespace SoftwareTest.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Index(PrimeFactorFormViewModel formModel)
         {
             if (formModel.TextFile != null && formModel.TextFile.ContentLength > 0)

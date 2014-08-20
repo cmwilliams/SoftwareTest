@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using MvcFlash.Core;
 using MvcFlash.Core.Extensions;
+using SoftwareTest.Extensions;
 using SoftwareTest.Helpers;
 using SoftwareTest.Models.ViewModels;
 

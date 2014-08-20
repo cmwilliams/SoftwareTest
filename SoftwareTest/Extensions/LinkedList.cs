@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SoftwareTest.Helpers
+﻿namespace SoftwareTest.Extensions
 {
     public class LinkedList<T>
     {

@@ -1,4 +1,5 @@
 ﻿using System;
+using SoftwareTest.Extensions;
 
 namespace SoftwareTest.Helpers
 {
@@ -6,7 +7,7 @@ namespace SoftwareTest.Helpers
     {
         public static int GetElementAt(LinkedList<int> linkedList, int index)
         {
-            int n = index; ;
+            int n = index;
             var end = -n;
 
             var start = linkedList.First;
@@ -30,7 +31,7 @@ namespace SoftwareTest.Helpers
 
         public static string GetElementAt(LinkedList<string> linkedList, int index)
         {
-            int n = index; ;
+            int n = index;
             var end = -n;
 
             var start = linkedList.First;

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SoftwareTest.Extensions;
 using SoftwareTest.Helpers;
 
 namespace SoftwareTest.Tests
