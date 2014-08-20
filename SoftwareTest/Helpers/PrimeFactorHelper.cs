@@ -1,34 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using SoftwareTest.Models.Dtos;
 
 namespace SoftwareTest.Helpers
 {
     public static class PrimeFactorHelper
     {
-        public static List<int> GetPrimeFactors(string file)
+        public static List<PrimeFactorDto> GetPrimeFactors(string file)
         {
-            var result = new List<int>();
+            var results = new List<PrimeFactorDto>();
             try
             {
-                string line;
-                var textFile = new System.IO.StreamReader(file);
-                while ((line = textFile.ReadLine()) != null)
+                var lines = File.ReadAllLines(file);
+                foreach (var line in lines)
                 {
-                    int item;
-                    if (int.TryParse(line, out item))
+                    int number;
+                    if (int.TryParse(line, out number))
                     {
-                        result.Add(item);
+                        results.Add(new PrimeFactorDto
+                        {
+                            Integer = number,
+                            PrimeFactors = GetFactors(number)
+                        });
                     }
                 }
-                textFile.Close();
             }
             catch (Exception)
             {
                 //Add Logging Function here
-                return result;
+                return results;
             }
 
-            return result;
+            return results;
         }
+
+        public static List<int> GetFactors(int number)
+        {
+            int factor;
+            var results = new List<int>();
+            for (factor = 2; number > 1; factor++)
+                if (number % factor == 0)
+                {
+                    var x = 0;
+                    while (number % factor == 0)
+                    {
+                        number /= factor;
+                        x++;
+                    }
+                    for (var i = 0; i < x; i++)
+                    {
+                        results.Add(factor);
+                    }
+                }
+            return results;
+        }
+
+
+       
     }
 }

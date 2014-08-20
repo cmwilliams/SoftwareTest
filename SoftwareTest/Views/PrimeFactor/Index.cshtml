@@ -1,4 +1,6 @@
-﻿@using MvcFlash.Core.Extensions
+﻿@model SoftwareTest.Models.ViewModels.PrimeFactorFormViewModel
+@using System.Globalization
+@using MvcFlash.Core.Extensions
 @{
     ViewBag.Title = "Prime Factor";
 }
@@ -19,7 +21,30 @@
             </div>
         </div>
     </div>
+}
 
-  
+@if (Model.PrimeFactors.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>Integer</td>
+                <td>Prime Factors</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var primeFactor in Model.PrimeFactors)
+            {
+                <tr>
+                    <td>
+                        @primeFactor.Integer
+                    </td>
+                    <td>
+                        @String.Join(",", primeFactor.PrimeFactors.Select(i => i.ToString(CultureInfo.InvariantCulture)).ToArray())
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }
 

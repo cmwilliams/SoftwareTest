@@ -26,7 +26,7 @@ namespace SoftwareTest.Controllers
                     {
                         var path = Path.Combine(Server.MapPath("~/Files"), Path.GetFileName(fileName));
                         formModel.TextFile.SaveAs(path);
-                        var result = PrimeFactorHelper.GetPrimeFactors(path);
+                        formModel.PrimeFactors = PrimeFactorHelper.GetPrimeFactors(path);
                     }
                 }
                 catch (Exception exception)

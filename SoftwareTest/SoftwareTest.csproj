@@ -126,6 +126,7 @@
     <Compile Include="Helpers\Node.cs" />
     <Compile Include="Helpers\PrimeFactorHelper.cs" />
     <Compile Include="Helpers\TriangleHelper.cs" />
+    <Compile Include="Models\Dtos\PrimeFactorDto.cs" />
     <Compile Include="Models\ViewModels\LinkedListFormViewModel.cs" />
     <Compile Include="Models\ViewModels\PrimeFactorFormViewModel.cs" />
     <Compile Include="Models\ViewModels\TriangleFormViewModel.cs" />
