@@ -1,0 +1,54 @@
+﻿@using MvcFlash.Core.Extensions
+
+@{
+    ViewBag.Title = "Linked List";
+}
+<h2>@ViewBag.Title</h2>
+@Html.Flash()
+
+<p>I have created the following linked lists:</p>
+
+<pre>
+    var linkedList = new LinkedList<"int">();
+    linkedList.AddToLinkedList(4);
+    linkedList.AddToLinkedList(5);
+    linkedList.AddToLinkedList(7);
+    linkedList.AddToLinkedList(2);
+    linkedList.AddToLinkedList(1);
+    linkedList.AddToLinkedList(10);
+</pre>
+
+<p>and</p>
+
+
+<pre>
+    var linkedList = new LinkedList<"string">();
+    linkedList.AddToLinkedList("Mike");
+    linkedList.AddToLinkedList("Williams");
+    linkedList.AddToLinkedList("is");
+    linkedList.AddToLinkedList("a");
+    linkedList.AddToLinkedList("nice");
+    linkedList.AddToLinkedList("guy");
+</pre>
+
+
+@using (Html.BeginForm("Index", "LinkedList", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+        @Html.EditorFor(model => model, new { htmlAttributes = new { @class = "form-control" }, })
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="View Items" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@section scripts
+{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}
