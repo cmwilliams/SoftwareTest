@@ -2,7 +2,7 @@
 
 namespace SoftwareTest.Models.ViewModels
 {
-    public class LinkedListViewModel
+    public class LinkedListFormViewModel
     {
         [Required]
         [Display(Name = "List Index to View")]

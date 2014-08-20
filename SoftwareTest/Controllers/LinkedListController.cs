@@ -11,12 +11,12 @@ namespace SoftwareTest.Controllers
     {
         public ActionResult Index()
         {
-            return View(new LinkedListViewModel());
+            return View(new LinkedListFormViewModel());
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(LinkedListViewModel formModel)
+        public ActionResult Index(LinkedListFormViewModel formModel)
         {
             var linkedListInt = new LinkedList<int>();
             linkedListInt.AddToLinkedList(4);

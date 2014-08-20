@@ -1,0 +1,25 @@
+﻿@using MvcFlash.Core.Extensions
+@{
+    ViewBag.Title = "Prime Factor";
+}
+
+<h2>@ViewBag.Title</h2>
+@Html.Flash()
+
+@using (Html.BeginForm("Index", "PrimeFactor", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+        <label for="TextFile" class="label">Upload File:</label>
+        <input type="file" name="TextFile" id="TextFile" class="form-control" />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Upload" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+  
+}
+
